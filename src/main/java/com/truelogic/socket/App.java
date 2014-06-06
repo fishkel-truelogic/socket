@@ -12,10 +12,12 @@ public class App {
 	private static LanConnection lc;
 
 	public static void main(String[] args) throws IOException {
-		lc = new LanConnection("127.0.0.1", 8888);
-		sendMessage();
-		getMessage();
-
+		DaServer daServer = new DaServer();
+		daServer.start();
+		Scanner scan = new Scanner(System.in);
+	    while (scan.hasNextLine()) {
+	      System.out.println("lala" + scan.nextLine());
+	    }
 	}
 
 	private static void getMessage() throws IOException {
@@ -29,7 +31,7 @@ public class App {
 		Scanner scanIn = new Scanner(System.in);
 		String sWhatever = scanIn.nextLine();
 		lc.sendLine(sWhatever);
-		scanIn.close(); 
+		scanIn.close();
 
 	}
 }
